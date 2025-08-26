@@ -15,7 +15,7 @@ contract SimpleStorage {
       uint256 age;
 
     }
-    // person public p = person({name:"shiva",age:25});
+    // person public p = person({name:"shiva",age:18});
 
     mapping (string => uint256) public nametoage;
 
