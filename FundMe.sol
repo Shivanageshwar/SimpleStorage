@@ -22,10 +22,12 @@ contract FundMe {
       require(msg.sender == owner,"only owner can send eth");
       _;
     }
-
+    
     function withdraw() public onlyOwner {
       for(uint256 funderIndex = 0; funderIndex < funders.length; funderIndex++) {
          address funder = funders[funderIndex];
          addressToAmountfunded[funder] = 0;
       }
+     (bool callsuccess,) = payable(msg.sender).call{value:address(this).balance} ("");
+       require(callsuccess,"call failed");
     }
